@@ -68,7 +68,73 @@ public class TestCase {
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");
 	}
+	
+	//BlackBox Test Case about Frequencer
+	try {
+		FrequencerInterface myObject;
+		int freq;	
+		System.out.println("checking s4.B171836.Frequencer :frequency()");
+	    myObject = new s4.B171836.Frequencer();
+	    myObject.setSpace("".getBytes());
+	    myObject.setTarget("H".getBytes());
+	    freq = myObject.frequency();
+	    System.out.print("\"H\" in no Space appears "+freq+" times. ");
+	    if(0 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+	}
+	catch(Exception e) {
+		System.out.println("Exception occurred: STOP");
+	}
+	
+	try {
+		FrequencerInterface myObject;
+		int freq;	
+		System.out.println("checking s4.B171836.Frequencer :frequency()");
+	    myObject = new s4.B171836.Frequencer();
+	    myObject.setSpace("Hi Ho Hi Ho".getBytes());
+	    myObject.setTarget("".getBytes());
+	    freq = myObject.frequency();
+	    System.out.print("no Target in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
+	    if(-1 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+	}
+	catch(Exception e) {
+		System.out.println("Exception occurred: STOP");
+	}
 
+	try {
+		FrequencerInterface myObject;
+		int freq;
+		int start, end;
+		System.out.println("checking s4.B171836.Frequencer :subByteFrequency()");
+	    myObject = new s4.B171836.Frequencer();
+	    myObject.setSpace("Hi Ho Hi Ho".getBytes());
+	    myObject.setTarget("H".getBytes());
+		start = 0;
+		end = 5;
+	    freq = myObject.subByteFrequency(start, end);
+	    System.out.print("\"H\" in \"Hi Ho Hi Ho\"(scope " +start+" to "+end+") appears "+freq+" times. ");
+	    if(2 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+	}
+	catch(Exception e) {
+		System.out.println("Exception occurred: STOP");
+	}
+	
+	//WhiteBox Test Case about Frequencer
+	try {
+		FrequencerInterface myObject;
+		int freq;
+		System.out.println("checking s4.B171836.Frequencer");
+	    myObject = new s4.B171836.Frequencer();
+	    myObject.setSpace("Hi Ho Hi Ho".getBytes());
+	    myObject.setTarget("HoH".getBytes());
+	    freq = myObject.frequency();
+	    System.out.print("\"HoH\" in \"HHi Ho Hi Ho\" appears "+freq+" times. ");
+	    if(1 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+	}
+	catch(Exception e) {
+		System.out.println("Exception occurred: STOP");
+		System.out.println(e.toString());
+	}
+	
     }
 }	    
 	    
