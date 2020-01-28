@@ -263,11 +263,12 @@ public class Frequencer implements FrequencerInterface{
         // if target_start_end is "Ho", it will return 7 for "Hi Ho Hi Ho".  
         // Assuming the suffix array is created from "Hi Ho Hi Ho",          
         // if target_start_end is"i", it will return 9 for "Hi Ho Hi Ho".    
-        //                                                                   
-        for(int i=suffixArray.length-1;i>0;i--){
-            if(targetCompare(i, start, end) == 0)return i+1;
+        //  
+        int i;
+        for(i=subByteStartIndex(start, end);i<this.suffixArray.length;i++){
+            if(targetCompare(i, start, end) != 0)break;
         }
-        return 0;
+        return i;
     }
 
 
