@@ -9,4 +9,4 @@ run:
 #	java -classpath "../.." s4.B171836/Frequencer
 #	java -classpath "../.." s4.B171836/InformationEstimator
 #	java -classpath "../.." s4.B171836/TestCase
-	java -classpath "../.." s4.B171836/FinalTest
+#	java -classpath "../.." s4.B171836/FinalTest
